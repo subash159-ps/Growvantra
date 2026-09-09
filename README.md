@@ -1,4 +1,4 @@
-# Global Hood
+# Growvantra
 
 Digital marketing agency website — public marketing pages plus a lightweight
 admin CMS for leads, services, portfolio, blog, and testimonials. Built with
