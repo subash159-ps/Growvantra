@@ -6,8 +6,8 @@ export const brand = {
   tagline: "Smarter Digital Marketing for Growing Businesses",
   description:
     "Growvantra helps businesses build their online presence, attract customers, and grow through digital marketing strategies.",
-  email: "hello@growvantra.in",
-  phone: "+91 90597 80843",
+  email: "hello@growvantra.com",
+  phone: "+91 95156 66305",
   address: {
     lines: [
       "1-1-261, 1st Cross Road",
