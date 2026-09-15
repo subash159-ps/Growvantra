@@ -18,7 +18,7 @@ export const brand = {
     mapsEmbedUrl: `https://www.google.com/maps?q=${encodeURIComponent(addressQuery)}&output=embed`,
   },
   social: {
-    instagram: "https://instagram.com/growvantra",
+    instagram: "https://www.instagram.com/growvantra.digitals/",
     linkedin: "https://linkedin.com/company/growvantra",
     facebook: "https://facebook.com/growvantra",
   },
