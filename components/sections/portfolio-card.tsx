@@ -1,5 +1,4 @@
 import { createElement } from "react";
-import Image from "next/image";
 import { ImageIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { getServiceIcon } from "@/lib/service-icons";
@@ -14,11 +13,13 @@ export function PortfolioCard({ item }: { item: Portfolio }) {
     <div className="group overflow-hidden rounded-xl border border-border transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md">
       <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-primary/10 via-muted to-brand-accent/10">
         {item.imageUrl ? (
-          <Image
+          // next/image's `fill` renders blank in this repo (Next 16 + Turbopack
+          // dev) — plain <img> is the working full-bleed pattern here.
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
             src={item.imageUrl}
             alt={item.title}
-            fill
-            className="object-cover transition-transform group-hover:scale-105"
+            className="absolute inset-0 h-full w-full object-cover transition-transform group-hover:scale-105"
           />
         ) : (
           <div className="flex h-full items-center justify-center">{categoryIcon}</div>
