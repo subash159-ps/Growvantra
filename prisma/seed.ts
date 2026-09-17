@@ -84,6 +84,57 @@ async function main() {
   }
   console.log(`Seeded ${services.length} services.`);
 
+  // Demo projects — Growvantra has no real client work published yet, so these
+  // are clearly-labeled DEMO items that show capability. Replace with real
+  // client work (and screenshots via the admin Image URL field) as it lands.
+  const portfolio = [
+    {
+      title: "Local Service Business Website",
+      slug: "demo-local-service-business-website",
+      description:
+        "A mobile-first site for a local trades business — service pages, click-to-call, service-area coverage, and a quote form that drops straight into the lead inbox.",
+      category: "Web Design & Development",
+      type: "DEMO" as const,
+      createdAt: new Date("2026-09-04T00:00:00Z"),
+    },
+    {
+      title: "Local SEO Growth Program",
+      slug: "demo-local-seo-growth-program",
+      description:
+        "A 90-day local search build-out: technical audit, Google Business Profile optimization, service-plus-location landing pages, and a review-generation loop.",
+      category: "SEO",
+      type: "DEMO" as const,
+      createdAt: new Date("2026-09-03T00:00:00Z"),
+    },
+    {
+      title: "E-Commerce Launch Campaign",
+      slug: "demo-ecommerce-launch-campaign",
+      description:
+        "A paid-social launch for a new online brand — pixel and event setup, a cold-audience creative test matrix, and retargeting flows for cart abandoners.",
+      category: "Meta Ads",
+      type: "DEMO" as const,
+      createdAt: new Date("2026-09-02T00:00:00Z"),
+    },
+    {
+      title: "Restaurant Social Media Kit",
+      slug: "demo-restaurant-social-media-kit",
+      description:
+        "A month of ready-to-post content for a single-location restaurant — reels, story templates, a posting calendar, and captions built around local discovery.",
+      category: "Social Media Marketing",
+      type: "DEMO" as const,
+      createdAt: new Date("2026-09-01T00:00:00Z"),
+    },
+  ];
+
+  for (const { createdAt, ...project } of portfolio) {
+    await prisma.portfolio.upsert({
+      where: { slug: project.slug },
+      update: project,
+      create: { ...project, createdAt },
+    });
+  }
+  console.log(`Seeded ${portfolio.length} portfolio projects.`);
+
   const managerEmail = process.env.SEED_MANAGER_EMAIL ?? "manager@globalhood.example";
   const managerPasswordHash = await bcrypt.hash(
     process.env.SEED_MANAGER_PASSWORD ?? "changeme123",

@@ -20,6 +20,15 @@ const serviceIcons: Record<string, LucideIcon> = {
   "branding-graphic-design": Palette,
 };
 
+// Portfolio categories are free text ("Web Design & Development"), not slugs,
+// so normalize before lookup. Already-slugged input passes through unchanged.
+function toSlug(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 export function getServiceIcon(slug: string): LucideIcon {
-  return serviceIcons[slug] ?? Briefcase;
+  return serviceIcons[slug] ?? serviceIcons[toSlug(slug)] ?? Briefcase;
 }
