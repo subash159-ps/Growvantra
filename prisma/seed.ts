@@ -85,10 +85,9 @@ async function main() {
   console.log(`Seeded ${services.length} services.`);
 
   // Demo projects — Growvantra has no real client work published yet, so these
-  // are clearly-labeled DEMO items that show capability. imageUrl reuses the
-  // existing /services photos that match each project's category (avoids
-  // introducing stock imagery). Replace with real client screenshots via the
-  // admin Image URL field as real work lands.
+  // are clearly-labeled DEMO items that show capability. No imageUrl for now
+  // (cards fall back to a category icon) — add real client screenshots via
+  // the admin Image URL field as real work lands.
   const portfolio = [
     {
       title: "Local Service Business Website",
@@ -96,7 +95,7 @@ async function main() {
       description:
         "A mobile-first site for a local trades business — service pages, click-to-call, service-area coverage, and a quote form that drops straight into the lead inbox.",
       category: "Web Design & Development",
-      imageUrl: "/services/web-design-development.jpg",
+      imageUrl: null,
       type: "DEMO" as const,
       createdAt: new Date("2026-09-04T00:00:00Z"),
     },
@@ -106,7 +105,7 @@ async function main() {
       description:
         "A 90-day local search build-out: technical audit, Google Business Profile optimization, service-plus-location landing pages, and a review-generation loop.",
       category: "SEO",
-      imageUrl: "/services/seo.jpg",
+      imageUrl: null,
       type: "DEMO" as const,
       createdAt: new Date("2026-09-03T00:00:00Z"),
     },
@@ -116,7 +115,7 @@ async function main() {
       description:
         "A paid-social launch for a new online brand — pixel and event setup, a cold-audience creative test matrix, and retargeting flows for cart abandoners.",
       category: "Meta Ads",
-      imageUrl: "/services/meta-ads.jpg",
+      imageUrl: null,
       type: "DEMO" as const,
       createdAt: new Date("2026-09-02T00:00:00Z"),
     },
@@ -126,7 +125,7 @@ async function main() {
       description:
         "A month of ready-to-post content for a single-location restaurant — reels, story templates, a posting calendar, and captions built around local discovery.",
       category: "Social Media Marketing",
-      imageUrl: "/services/social-media-marketing.jpg",
+      imageUrl: null,
       type: "DEMO" as const,
       createdAt: new Date("2026-09-01T00:00:00Z"),
     },
